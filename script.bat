@@ -1,5 +1,4 @@
 @echo off
-
 SET mypath=%~dp0
 
 cls
@@ -47,11 +46,6 @@ REM Activation windows
 slmgr /ato
 echo.
 
-set /p test1=Procedons avec Gestionnaire de peripherique...
-REM Gestionnaire de peripherique
-devmgmt.msc
-echo.
-
 set /p test1=Procedons avec Lenovo Update...
 "C:\Program Files (x86)\Lenovo\System Update\tvsu.exe"
 echo.
@@ -64,10 +58,14 @@ set /p test1=Procedons avec la verification de la camera...
 start microsoft.windows.camera:
 echo.
 
+set /p test1=Procedons avec Gestionnaire de peripherique...
+REM Gestionnaire de peripherique
+devmgmt.msc
+echo.
+
 set /p watchguard=Installer WatchGuard VPN? 
 if %watchguard%==o curl -o wg.exe https://cdn.watchguard.com/SoftwareCenter/Files/MUVPN_SSL/12_5_3/WG-MVPN-SSL_12_5_3.exe
+if %watchguard%==o %mypath:~0,-1%\wg.exe
 echo.
 
 set /p test1=Pensez a coller le collant et mettre HD en boot seulement :)
-
-:quit

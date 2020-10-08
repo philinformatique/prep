@@ -2,6 +2,7 @@
 SET mypath=%~dp0
 
 cls
+if exist %windir%\PI\hostname.txt (goto update)
 echo Version 1.0
 echo.
 echo Synchronisation de l'heure avec le serveur NTP...
@@ -25,7 +26,11 @@ If /I "%ID%"=="%ComputerName%" Exit /B
 If "%ID:~,1%"=="." (Echo Must not begin with a period
     GoTo AskID)
 
-WMIC ComputerSystem Where Name="%ComputerName%" Call Rename "%ID%"
+WMIC ComputerSystem Where Name="%ComputerName%" Call Rename "%ID%">%windir%\PI\hostname.txt
+
+set /p reboot=Votre PC redemarrera pensez a mettre le HD seul en boot... Appuyez sur une touche
+if %reboot%==no goto update
+shutdown /r
 
 :update 
 wmic bios get serialnumber>>%mypath:~0,-1%\%ComputerName%.txt

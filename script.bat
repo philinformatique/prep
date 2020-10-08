@@ -3,6 +3,8 @@
 SET mypath=%~dp0
 
 cls
+echo Version 1.0
+echo.
 echo Synchronisation de l'heure avec le serveur NTP...
 net start w32time>nul
 w32tm /resync>nul

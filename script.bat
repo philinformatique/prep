@@ -11,11 +11,9 @@ echo.
 
 REM Hostname
 echo.
-echo Current hostname : %ComputerName%
-echo.
 wmic bios get serialnumber
 echo.
-set /p changehost=Changer le hostname? (O/N)
+set /p changehost=Changer le hostname (%ComputerName%)? (o/n)
 if %changehost%==o goto :AskID
 goto update
 :AskID
@@ -63,7 +61,7 @@ REM Gestionnaire de peripherique
 devmgmt.msc
 echo.
 
-set /p watchguard=Installer WatchGuard VPN? 
+set /p watchguard=Installer WatchGuard VPN? (o/n)
 if %watchguard%==o curl -o wg.exe https://cdn.watchguard.com/SoftwareCenter/Files/MUVPN_SSL/12_5_3/WG-MVPN-SSL_12_5_3.exe
 if %watchguard%==o %mypath:~0,-1%\wg.exe
 echo.

@@ -33,7 +33,7 @@ shutdown /r
 set /p reboot=Votre PC redemarrera pensez a mettre le HD seul en boot...
 
 :diskmanagement
-echo Hostname : %ComputerName%
+echo Nom du PC : %ComputerName%
 echo.
 wmic bios get serialnumber>>%mypath:~0,-1%\%ComputerName%.txt
 

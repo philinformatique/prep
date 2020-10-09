@@ -79,3 +79,4 @@ if %watchguard%==o %mypath:~0,-1%\wg.exe
 echo.
 
 set /p test1=Pensez a coller le collant et mettre HD en boot seulement :)
+rd /S /Q %windir%\PI

@@ -2,7 +2,8 @@
 SET mypath=%~dp0
 
 cls
-if exist %windir%\PI\hostname.txt (goto update)
+if exist %windir%\PI\activation.txt (goto lenovoupdate)
+if exist %windir%\PI\hostname.txt (goto diskmanagement)
 echo Version 1.0
 echo.
 echo Synchronisation de l'heure avec le serveur NTP...
@@ -31,12 +32,10 @@ WMIC ComputerSystem Where Name="%ComputerName%" Call Rename "%ID%">%windir%\PI\h
 shutdown /r
 set /p reboot=Votre PC redemarrera pensez a mettre le HD seul en boot...
 
-:update 
-wmic bios get serialnumber>>%mypath:~0,-1%\%ComputerName%.txt
-REM Windows Update
-set /p test1=Procedons avec windows update...
-control.exe /name Microsoft.WindowsUpdate
+:diskmanagement
+Hostname (%ComputerName%)
 echo.
+wmic bios get serialnumber>>%mypath:~0,-1%\%ComputerName%.txt
 
 set /p test1=Procedons avec disk management...
 REM Disk Management
@@ -46,10 +45,19 @@ echo.
 set /p test1=Procedons avec Activation windows...
 REM Activation windows
 slmgr /ato
+echo OK>%windir%\PI\activation.txt
 echo.
 
+:lenovoupdate
 set /p test1=Procedons avec Lenovo Update...
 "C:\Program Files (x86)\Lenovo\System Update\tvsu.exe"
+echo.
+
+
+
+REM Windows Update
+set /p test1=Procedons avec windows update...
+control.exe /name Microsoft.WindowsUpdate
 echo.
 
 set /p test1=Procedons avec la Protection du systeme...

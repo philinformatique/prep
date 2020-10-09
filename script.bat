@@ -28,9 +28,8 @@ If "%ID:~,1%"=="." (Echo Must not begin with a period
 
 WMIC ComputerSystem Where Name="%ComputerName%" Call Rename "%ID%">%windir%\PI\hostname.txt
 
-set /p reboot=Votre PC redemarrera pensez a mettre le HD seul en boot... Appuyez sur une touche
-if %reboot%==no goto update
 shutdown /r
+set /p reboot=Votre PC redemarrera pensez a mettre le HD seul en boot...
 
 :update 
 wmic bios get serialnumber>>%mypath:~0,-1%\%ComputerName%.txt

@@ -11,7 +11,7 @@ net start w32time>nul
 w32tm /resync>nul
 echo.
 
-REM Hostname
+
 echo.
 wmic bios get serialnumber
 echo.
@@ -30,45 +30,45 @@ If "%ID:~,1%"=="." (Echo Must not begin with a period
 WMIC ComputerSystem Where Name="%ComputerName%" Call Rename "%ID%">%windir%\PI\hostname.txt
 
 shutdown /r
-set /p reboot=Votre PC redemarrera pensez a mettre le HD seul en boot...
+set /p reboot=Votre PC redemarrera pensez a mettre le HD seul en boot, Veuillez attendre...
+set /p reboot=Votre PC redemarrera pensez a mettre le HD seul en boot, Veuillez attendre...
+
 
 :diskmanagement
 echo Nom du PC : %ComputerName%
 echo.
 wmic bios get serialnumber>>%mypath:~0,-1%\%ComputerName%.txt
 
-set /p test1=Procedons avec disk management...
-REM Disk Management
+set /p test1=Procedons avec disk management, Appuyez sur une touche...
 diskmgmt.msc
 echo.
 
-set /p test1=Procedons avec Activation windows...
-REM Activation windows
+set /p test1=Procedons avec Activation windows, Appuyez sur une touche...
 slmgr /ato
 echo OK>%windir%\PI\activation.txt
 echo.
 
+set /p test1=Procedons avec la Protection du systeme, Appuyez sur une touche...
+sysdm.cpl ,4
+echo.
+
 :lenovoupdate
-set /p test1=Procedons avec Lenovo Update...
+set /p test1=Procedons avec Lenovo Update, Appuyez sur une touche...
 "C:\Program Files (x86)\Lenovo\System Update\tvsu.exe"
 echo.
 
 
 
 REM Windows Update
-set /p test1=Procedons avec windows update...
+set /p test1=Procedons avec windows update, Appuyez sur une touche...
 control.exe /name Microsoft.WindowsUpdate
 echo.
 
-set /p test1=Procedons avec la Protection du systeme...
-sysdm.cpl ,4
-echo.
-
-set /p test1=Procedons avec la verification de la camera...
+set /p test1=Procedons avec la verification de la camera, Appuyez sur une touche...
 start microsoft.windows.camera:
 echo.
 
-set /p test1=Procedons avec Gestionnaire de peripherique...
+set /p test1=Procedons avec Gestionnaire de peripherique, Appuyez sur une touche...
 REM Gestionnaire de peripherique
 devmgmt.msc
 echo.
@@ -78,5 +78,5 @@ if %watchguard%==o curl -o wg.exe https://cdn.watchguard.com/SoftwareCenter/File
 if %watchguard%==o %mypath:~0,-1%\wg.exe
 echo.
 
-set /p test1=Pensez a coller le collant et mettre HD en boot seulement :)
+set /p test1=Pensez a coller le collant :)
 rd /S /Q %windir%\PI

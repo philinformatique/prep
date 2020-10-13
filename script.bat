@@ -17,7 +17,7 @@ wmic bios get serialnumber
 echo.
 set /p changehost=Changer le hostname (%ComputerName%)? (o/n)
 if %changehost%==o goto :AskID
-goto diskmanagement
+goto :diskmanagement
 :AskID
 Set "ID="
 Set /P "ID=Enter your new name: "

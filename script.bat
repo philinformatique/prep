@@ -17,7 +17,7 @@ wmic bios get serialnumber
 echo.
 set /p changehost=Changer le hostname (%ComputerName%)? (o/n)
 if %changehost%==o goto :AskID
-goto :diskmngt
+goto :diskmanagement
 :AskID
 Set "ID="
 Set /P "ID=Enter your new name: "
@@ -34,7 +34,7 @@ set /p reboot=Votre PC redemarrera pensez a mettre le HD seul en boot, Veuillez 
 set /p reboot=Votre PC redemarrera pensez a mettre le HD seul en boot, Veuillez attendre...
 
 
-:diskmngt
+:diskmanagement
 echo Nom du PC : %ComputerName%
 echo.
 wmic bios get serialnumber>>%mypath:~0,-1%\%ComputerName%.txt

@@ -80,3 +80,4 @@ echo.
 
 set /p test1=Pensez a coller le collant :)
 rd /S /Q %windir%\PI
+del "%APPDATA%\Microsoft\Windows\Start Menu\Programs\Startup\Script.bat"

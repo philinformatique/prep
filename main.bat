@@ -6,7 +6,7 @@ Echo 1. Script apres images
 Echo q pour Quitter
 set /p menumain=Votre choix? :
 
-if %menumain%==q goto :menu1
+if %menumain%==1 goto :menu1
 if %menumain%==q goto :end
 
 :menu1

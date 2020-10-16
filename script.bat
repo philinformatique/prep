@@ -33,6 +33,8 @@ shutdown /r
 set /p reboot=Votre PC redemarrera pensez a mettre le HD seul en boot, Veuillez attendre...
 set /p reboot=Votre PC redemarrera pensez a mettre le HD seul en boot, Veuillez attendre...
 
+REM Fin du nom de PC
+
 
 :diskmanagement
 echo Nom du PC : %ComputerName%

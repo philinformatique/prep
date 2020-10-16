@@ -20,11 +20,11 @@ if %changehost%==o goto :AskID
 goto :diskmanagement
 :AskID
 Set "ID="
-Set /P "ID=Enter your new name: "
-If Not Defined ID (Echo Can not be empty
+Set /P "ID=Nouveau nom: "
+If Not Defined ID (Echo Ne peut pas etre vide
     GoTo AskID)
 If /I "%ID%"=="%ComputerName%" Exit /B
-If "%ID:~,1%"=="." (Echo Must not begin with a period
+If "%ID:~,1%"=="." (Echo Ne doit pas commencer pas un point
     GoTo AskID)
 
 WMIC ComputerSystem Where Name="%ComputerName%" Call Rename "%ID%">%windir%\PI\hostname.txt
@@ -82,4 +82,4 @@ echo.
 
 set /p test1=Pensez a coller le collant :)
 rd /S /Q %windir%\PI
-del "%APPDATA%\Microsoft\Windows\Start Menu\Programs\Startup\Script.bat"
+echo Vous pouvez maintenant fermer cettre fenetre

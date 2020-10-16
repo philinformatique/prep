@@ -55,9 +55,10 @@ sysdm.cpl ,4
 echo.
 
 :lenovoupdate
+if exist "C:\Program Files (x86)\Lenovo\System Update\tvsu.exe"(
 set /p test1=Procedons avec Lenovo Update, Appuyez sur une touche...
 "C:\Program Files (x86)\Lenovo\System Update\tvsu.exe"
-echo.
+echo.)
 
 
 

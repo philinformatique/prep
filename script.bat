@@ -57,7 +57,7 @@ echo.
 :lenovoupdate
 if exist "C:\Program Files (x86)\Lenovo\System Update\tvsu.exe" (
 set /p test1=Procedons avec Lenovo Update, Appuyez sur une touche...
-if not %test1%==n "C:\Program Files (x86)\Lenovo\System Update\tvsu.exe"
+"C:\Program Files (x86)\Lenovo\System Update\tvsu.exe"
 echo.)
 
 

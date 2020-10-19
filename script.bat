@@ -4,7 +4,7 @@ SET mypath=%~dp0
 cls
 if exist %windir%\PI\activation.txt (goto lenovoupdate)
 if exist %windir%\PI\hostname.txt (goto diskmanagement)
-echo Version 2020-10-19
+echo Version 2020-10-19-2
 echo.
 echo Synchronisation de l'heure avec le serveur NTP...
 net start w32time>nul

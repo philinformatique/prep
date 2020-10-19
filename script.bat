@@ -77,6 +77,7 @@ devmgmt.msc
 echo.
 
 set /p watchguard=Installer WatchGuard VPN? (o/n)
+REM TEST
 if %watchguard%==o (curl -o wg.exe https://cdn.watchguard.com/SoftwareCenter/Files/MUVPN_SSL/12_5_3/WG-MVPN-SSL_12_5_3.exe
 %mypath:~0,-1%\wg.exe)
 echo.

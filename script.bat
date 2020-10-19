@@ -42,7 +42,7 @@ echo.
 wmic bios get serialnumber>>%mypath:~0,-1%\%ComputerName%.txt
 
 set /p test1=Procedons avec disk management, Appuyez sur une touche...
-diskmgmt.msc
+if not %test1%==n diskmgmt.msc
 echo.
 
 set /p test1=Procedons avec Activation windows, Appuyez sur une touche...

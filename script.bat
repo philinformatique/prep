@@ -46,38 +46,38 @@ if not %test1%==n diskmgmt.msc
 echo.
 
 set /p test1=Procedons avec Activation windows, Appuyez sur une touche...
-slmgr /ato
+if not %test1%==n slmgr /ato
 echo OK>%windir%\PI\activation.txt
 echo.
 
 set /p test1=Procedons avec la Protection du systeme, Appuyez sur une touche...
-sysdm.cpl ,4
+if not %test1%==n sysdm.cpl ,4
 echo.
 
 :lenovoupdate
 if exist "C:\Program Files (x86)\Lenovo\System Update\tvsu.exe" (
 set /p test1=Procedons avec Lenovo Update, Appuyez sur une touche...
-"C:\Program Files (x86)\Lenovo\System Update\tvsu.exe"
+if not %test1%==n "C:\Program Files (x86)\Lenovo\System Update\tvsu.exe"
 echo.)
 
 
 
 REM Windows Update
 set /p test1=Procedons avec windows update, Appuyez sur une touche...
-control.exe /name Microsoft.WindowsUpdate
+if not %test1%==n control.exe /name Microsoft.WindowsUpdate
 echo.
 
 set /p test1=Procedons avec la verification de la camera, Appuyez sur une touche...
-start microsoft.windows.camera:
+if not %test1%==n start microsoft.windows.camera:
 echo.
 
 set /p test1=Procedons avec Gestionnaire de peripherique, Appuyez sur une touche...
 REM Gestionnaire de peripherique
-devmgmt.msc
+if not %test1%==n devmgmt.msc
 echo.
 
 set /p watchguard=Installer WatchGuard VPN? (o/n)
-REM TEST
+REM Watchguard Installer
 if %watchguard%==o (curl -o wg.exe https://cdn.watchguard.com/SoftwareCenter/Files/MUVPN_SSL/12_5_3/WG-MVPN-SSL_12_5_3.exe
 %mypath:~0,-1%\wg.exe)
 echo.

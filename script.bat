@@ -41,7 +41,8 @@ echo Nom du PC : %ComputerName%
 echo.
 wmic bios get serialnumber>>%mypath:~0,-1%\%ComputerName%.txt
 
-set /p test1=Procedons avec disk management, Appuyez sur une touche...
+echo Procedons avec disk management, Appuyez sur une touche...
+pause>nul
 if not %test1%==n diskmgmt.msc
 echo.
 

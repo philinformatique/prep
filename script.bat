@@ -1,4 +1,4 @@
-@echo off
+@echo on
 SET mypath=%~dp0
 
 cls

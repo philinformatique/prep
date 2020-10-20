@@ -84,4 +84,4 @@ echo.
 
 set /p test1=Pensez a coller le collant :)
 rd /S /Q %windir%\PI
-echo Vous pouvez maintenant fermer cettre fenetre
+reg delete HKEY_LOCAL_MACHINE\SOFTWARE\Microsoft\Windows\CurrentVersion\Run /v script /f

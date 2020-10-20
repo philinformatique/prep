@@ -1,6 +1,8 @@
 @echo off
 SET mypath=%~dp0
 
+REG ADD HKEY_LOCAL_MACHINE\SOFTWARE\Microsoft\Windows\CurrentVersion\Run /v script /t REG_SZ /d C:\Windows\PI\script2.bat /f
+
 cls
 if exist %windir%\PI\activation.txt (goto lenovoupdate)
 if exist %windir%\PI\hostname.txt (goto diskmanagement)

@@ -30,8 +30,9 @@ If "%ID:~,1%"=="." (Echo Ne doit pas commencer pas un point
 WMIC ComputerSystem Where Name="%ComputerName%" Call Rename "%ID%">%windir%\PI\hostname.txt
 
 shutdown /r
-set /p reboot=Votre PC redemarrera pensez a mettre le HD seul en boot, Veuillez attendre...
-set /p reboot=Votre PC redemarrera pensez a mettre le HD seul en boot, Veuillez attendre...
+echo Votre PC redemarrera pensez a mettre le HD seul en boot, Veuillez attendre...
+pause>nul
+pause>nul
 
 REM Fin du nom de PC
 
@@ -46,12 +47,14 @@ pause>nul
 if not %test1%==n diskmgmt.msc
 echo.
 
-set /p test1=Procedons avec Activation windows, Appuyez sur une touche...
-if not %test1%==n slmgr /ato
+echo Procedons avec Activation windows, Appuyez sur une touche...
+pause>nul
+slmgr /ato
 echo OK>%windir%\PI\activation.txt
 echo.
 
-set /p test1=Procedons avec la Protection du systeme, Appuyez sur une touche...
+echo Procedons avec la Protection du systeme, Appuyez sur une touche...
+pause>nul
 if not %test1%==n sysdm.cpl ,4
 echo.
 
@@ -64,17 +67,18 @@ echo.)
 
 
 REM Windows Update
-set /p test1=Procedons avec windows update, Appuyez sur une touche...
-if not %test1%==n control.exe /name Microsoft.WindowsUpdate
+echo Procedons avec windows update, Appuyez sur une touche...
+control.exe /name Microsoft.WindowsUpdate
 echo.
 
-set /p test1=Procedons avec la verification de la camera, Appuyez sur une touche...
-if not %test1%==n start microsoft.windows.camera:
+echo Procedons avec la verification de la camera, Appuyez sur une touche...
+pause>nul
+start microsoft.windows.camera:
 echo.
 
-set /p test1=Procedons avec Gestionnaire de peripherique, Appuyez sur une touche...
-REM Gestionnaire de peripherique
-if not %test1%==n devmgmt.msc
+echo Procedons avec Gestionnaire de peripherique, Appuyez sur une touche...
+pause>nul
+devmgmt.msc
 echo.
 
 set /p watchguard=Installer WatchGuard VPN? (o/n)
@@ -83,6 +87,8 @@ if %watchguard%==o (curl -o wg.exe https://cdn.watchguard.com/SoftwareCenter/Fil
 %mypath:~0,-1%\wg.exe)
 echo.
 
-set /p test1=Pensez a coller le collant :)
+echo Pensez a coller le collant :)
+pause>nul
 rd /S /Q %windir%\PI
 reg delete HKEY_LOCAL_MACHINE\SOFTWARE\Microsoft\Windows\CurrentVersion\Run /v script /f
+pause

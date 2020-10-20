@@ -1,4 +1,4 @@
-@echo on
+@echo off
 SET mypath=%~dp0
 
 cls
@@ -91,5 +91,5 @@ echo.
 echo Pensez a coller le collant :)
 pause>nul
 reg delete HKEY_LOCAL_MACHINE\SOFTWARE\Microsoft\Windows\CurrentVersion\Run /v script /f
-rd /S /Q %windir%\PI
+rd /S /Q C:\Winodows\PI
 pause

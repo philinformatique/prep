@@ -55,7 +55,7 @@ echo.
 
 echo Procedons avec la Protection du systeme, Appuyez sur une touche...
 pause>nul
-if not %test1%==n sysdm.cpl ,4
+sysdm.cpl ,4
 echo.
 
 :lenovoupdate

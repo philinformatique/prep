@@ -11,6 +11,7 @@ if %menumain%==1 goto :menu1
 if %menumain%==q goto :end
 
 :menu1
+if not exist %windir%\PI (md %windir%\PI)
 curl -o %windir%\PI\script2.bat https://raw.githubusercontent.com/philinformatique/prep/main/script.bat
 %windir%\PI\script2.bat
 

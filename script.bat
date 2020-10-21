@@ -15,7 +15,7 @@ echo Synchronisation de l'heure avec le serveur NTP...
 net start w32time>nul
 w32tm /resync>nul
 echo.
-manage-bde -off
+manage-bde -off c:
 echo.
 
 

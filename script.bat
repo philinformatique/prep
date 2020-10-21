@@ -74,6 +74,7 @@ echo.)
 
 REM Windows Update
 echo Procedons avec windows update, Appuyez sur une touche...
+pause>nul
 control.exe /name Microsoft.WindowsUpdate
 echo.
 

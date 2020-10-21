@@ -99,4 +99,4 @@ echo.
 echo Pensez a coller le collant :)
 pause>nul
 reg delete HKEY_LOCAL_MACHINE\SOFTWARE\Microsoft\Windows\CurrentVersion\Run /v script /f
-rd /S /Q C:\Windows\PI
+start rd /S /Q C:\Windows\PI

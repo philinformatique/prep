@@ -11,9 +11,6 @@ if exist %windir%\PI\activation.txt (goto lenovoupdate)
 if exist %windir%\PI\hostname.txt (goto diskmanagement)
 echo Version 2020-10-21
 echo.
-echo Désactivation du Bitlocker si activé...
-manage-bde -off c:>nul
-echo.
 echo Synchronisation de l'heure avec le serveur NTP...
 net start w32time>nul
 w32tm /resync>nul
@@ -48,6 +45,8 @@ REM Fin du nom de PC
 
 :diskmanagement
 echo Nom du PC : %ComputerName%
+echo.
+manage-bde -off c:
 echo.
 wmic bios get serialnumber>>%mypath:~0,-1%\%ComputerName%.txt
 

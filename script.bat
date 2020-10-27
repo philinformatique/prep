@@ -99,7 +99,7 @@ echo.
 
 echo Test de son...
 pause>nul
-^G
+
 echo.
 
 echo Pensez a coller le collant :)

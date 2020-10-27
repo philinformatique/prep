@@ -97,6 +97,11 @@ if %watchguard%==o (curl -o wg.exe https://cdn.watchguard.com/SoftwareCenter/Fil
 %mypath:~0,-1%\wg.exe)
 echo.
 
+echo Test de son...
+pause>nul
+^G
+echo.
+
 echo Pensez a coller le collant :)
 pause>nul
 reg delete HKEY_LOCAL_MACHINE\SOFTWARE\Microsoft\Windows\CurrentVersion\Run /v script /f
